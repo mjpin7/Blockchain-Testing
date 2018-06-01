@@ -7,9 +7,7 @@ public class TestChain {
 	public static int difficulty = 3;
 	
 	public static void main(String[] args)
-	{
-		System.out.println("Hello");
-		
+	{		
 		System.out.println("Trying to mine genesis block... ");
 		addBlock(new Block("Genesis block", "0"));
 		

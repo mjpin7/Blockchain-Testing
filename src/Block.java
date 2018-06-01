@@ -8,7 +8,7 @@ public class Block {
 	public String prevHash;
 	public String data;
 	private long timeStamp;
-	private int nonce = 0;
+	private int nonce;
 	
 	/* Constructor */
 	public Block(String data, String prevHash)
@@ -16,6 +16,7 @@ public class Block {
 		this.data = data;
 		this.prevHash = prevHash;
 		this.timeStamp = new Date().getTime();
+		this.nonce = 0;							// Start nonce at 0
 		this.hash = getHash();					// **IMPORTANT** must call this function AFTER the other values have been set
 		
 		
