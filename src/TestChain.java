@@ -4,22 +4,22 @@ import com.google.gson.GsonBuilder;
 public class TestChain {
 	
 	public static ArrayList<Block> chain = new ArrayList<Block>();
-	public static int difficulty = 1;
+	public static int difficulty = 3;
 	
 	public static void main(String[] args)
 	{
+		System.out.println("Hello");
 		
-		chain.add(new Block("First Block!", "0"));
-		System.out.println("Mining genisis block...");
-		chain.get(0).mineBlock(difficulty);
+		System.out.println("Trying to mine genesis block... ");
+		addBlock(new Block("Genesis block", "0"));
 		
-		chain.add(new Block("Second Block", chain.get(chain.size() - 1).hash));
-		System.out.println("Mining second block...");
-		chain.get(1).mineBlock(difficulty);
+		System.out.println("Trying to Mine block 2... ");
+		addBlock(new Block("Second block", chain.get(chain.size()-1).hash));
 		
-		chain.add(new Block("Third Block", chain.get(chain.size() - 1).hash));
-		System.out.println("Mining third block...");
-		chain.get(2).mineBlock(difficulty);
+		System.out.println("Trying to Mine block 3... ");
+		addBlock(new Block("Third block", chain.get(chain.size()-1).hash));	
+		
+		System.out.println("\nBlockchain is Valid: " + isValid());
 		
 		if(isValid())
 		{
@@ -76,6 +76,12 @@ public class TestChain {
 		}
 		
 		return true;
+	}
+	
+	public static void addBlock(Block newBlock)
+	{
+		newBlock.mineBlock(difficulty);
+		chain.add(newBlock);
 	}
 
 }

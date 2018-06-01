@@ -8,7 +8,7 @@ public class Block {
 	public String prevHash;
 	public String data;
 	private long timeStamp;
-	private int nonce;
+	private int nonce = 0;
 	
 	/* Constructor */
 	public Block(String data, String prevHash)
@@ -36,11 +36,11 @@ public class Block {
 	public void mineBlock(int difficulty)
 	{
 		// Create a new string of which consists of "difficulty" amount of 0's
-		String target = Util.getDifficultyString(difficulty);
+		String targetString = Util.getDifficultyString(difficulty);
 		
-		while(!this.hash.substring(0, difficulty).equals(target));
+		while(!this.hash.substring(0, difficulty).equals(targetString))
 		{
-			nonce ++;
+			nonce++;
 			hash = getHash();
 		}
 		
