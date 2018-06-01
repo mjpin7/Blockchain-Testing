@@ -1,3 +1,5 @@
+
+
 import java.util.Date;
 
 public class Block {
@@ -14,7 +16,6 @@ public class Block {
 		this.data = data;
 		this.prevHash = prevHash;
 		this.timeStamp = new Date().getTime();
-		this.nonce = 0;
 		this.hash = getHash();					// **IMPORTANT** must call this function AFTER the other values have been set
 		
 		
@@ -35,11 +36,11 @@ public class Block {
 	public void mineBlock(int difficulty)
 	{
 		// Create a new string of which consists of "difficulty" amount of 0's
-		String target = new String(new char[difficulty]).replace('\0', '0');
+		String target = Util.getDifficultyString(difficulty);
 		
 		while(!this.hash.substring(0, difficulty).equals(target));
 		{
-			nonce++;
+			nonce ++;
 			hash = getHash();
 		}
 		
