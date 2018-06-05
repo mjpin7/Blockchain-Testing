@@ -34,7 +34,7 @@ public class Transaction {
 	 * 
 	 * @return
 	 */
-	private String calcHash()
+	public String calcHash()
 	{
 		// Update sequence to make sure that no two transaction hashes are the same
 		seq++;
