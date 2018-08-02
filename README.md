@@ -4,4 +4,4 @@ Dependancies needed: Import BouncyCastle @ https://www.bouncycastle.org/latest_r
 GSON @ http://central.maven.org/maven2/com/google/code/gson/gson/2.8.2/gson-2.8.2.jar
 
 Kown Errors:
-  - Only works sometimes, unpredictable
+  - Unpredictable
